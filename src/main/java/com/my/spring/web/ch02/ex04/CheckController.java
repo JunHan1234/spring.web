@@ -3,6 +3,7 @@ package com.my.spring.web.ch02.ex04;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,10 +42,18 @@ public class CheckController {
 		return "ch02/ex04/radioOut";
 	}
 	
+	/*
 	//parameter value가 배열인 상황.
 	@PostMapping("checkbox")
-	//parameter name과 변수명이 불일치 할때는 @RequestParam에 parameter name을 직접 기술해준다.
+	//parameter name과 변수명이 불일치 할때는,
+	//@RequestParam에 parameter name을 직접 기술해줄 수 있다.
 	public String checkbox(@RequestParam("fruit") ArrayList<String> fruits) {
+		return "ch02/ex04/checkboxOut";
+	}
+	*/
+	@PostMapping("checkbox")
+	public String checkbox(@RequestParam("fruit") ArrayList<String> fruits, Model model) {
+		model.addAttribute("fruits", fruits);
 		return "ch02/ex04/checkboxOut";
 	}
 }

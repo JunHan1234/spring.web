@@ -10,17 +10,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UserController { //controller준비.
 	//@GetMapping(request method가 GET이다.)으로 context-path의
-	//주소 이후를 설정해서 handler의 Mapping을 해준다.
+	//주소 이후를 설정해서 [Handler Mapping]을 해준다.
 	@GetMapping("11")
 	//spring container가 model view를 담을 그릇을 만들어준다.
 	//client의 request를 handler가 받는다.
-	//1. return type이 ModelAndView 인 경우의 핸들러.
+	//1.[역사순] return type이 ModelAndView 인 경우의 핸들러.
 	public ModelAndView handler11(ModelAndView mv) {
 		//model은 service로부터 오고, service는 이 model을 dao로부터 받고 dao는 이 data를 DB(oracle)에서 받는다.
 		mv.addObject("user", new User("최한석", 11)); //model준비.
 		mv.setViewName("ch02/ex01/user"); //view준비.
 		
-		return mv; //mv 객체를 dispatcher servlet에게 return.
+		return mv; //mv 객체를 [Dispatcher Servlet]에게 return.
 	}//mvc의 준비 완료.
 	
 	//2. return type이 string인 경우의 핸들러 2가지.
@@ -51,7 +51,7 @@ public class UserController { //controller준비.
 		user.setAge(32);
 	}
 	
-	//4. return type이 model 일 경우의 핸들러.
+	//4. return type이 model인 경우의 핸들러.
 	@GetMapping("ch02/ex01/41")
 	public User handler41(User user) {
 		user.setUsername("김가람");
