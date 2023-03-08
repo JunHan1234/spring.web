@@ -18,7 +18,7 @@ public class UserController {
 	
 	
 	//이 핸들러의 url은 post방식의 ch02/ex03/user이다.
-	@PostMapping //command: model의 역할, parameter값을 request url로 보내는 역할 두가지 수행하는 것.
+	@PostMapping //command: model의 역할, request parameter값을 받아들여 url로 보내는 역할 두가지 수행하는 것.
 	public String userOut(User user) { //container가 호출할때 만드는 User객체는 기본생성자로 만든다.
 		return "ch02/ex03/userOut";
 	}
