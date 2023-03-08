@@ -41,11 +41,12 @@ public class UserController { //controller준비.
 		user.setUsername("양승일");
 		user.setAge(31);
 		//return값으로 view name이 없는경우,
-		//handler가 mapping된 주소(ch02/ex01/31)를 그대로 viewname으로 쓴다.
+		//handler가 mapping된 url을(ch02/ex01/31) 그대로 viewname으로 쓴다.
 	}
 	
 	@GetMapping("ch02/ex01/32")
 	//model name을 man으로 지정. (내버려뒀으면 user임)
+	//servlet 관점으로 man은 Attribute name.
 	public void handler32(@ModelAttribute("man") User user) {
 		user.setUsername("서준한");
 		user.setAge(32);
