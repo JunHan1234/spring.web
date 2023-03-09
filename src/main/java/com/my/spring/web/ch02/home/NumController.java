@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("ch02/home")
@@ -15,8 +16,12 @@ public class NumController {
 	}
 	
 	@PostMapping("numOut")
-	public String numOut(@ModelAttribute("numvalue") NumDto num) {
-		Integer.parseInt(numvalue.getNum());
+	public String numOut(@ModelAttribute("myNumber") NumDto myNumber,
+						@RequestParam("userNum") int userNum) {
+		double comNum = (int)(Math.random() * 10) / 10.0;
+		
+		myNumber.setResultNum(userNum + comNum);
+		
 		return "ch02/home/numOut";
 	}
 }
