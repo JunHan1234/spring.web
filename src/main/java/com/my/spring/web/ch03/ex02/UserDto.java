@@ -8,6 +8,7 @@ import lombok.Data;
 public class UserDto {
 	private String username;
 	private int age;
+	//client와 handler사이에 주고받는 data.
 	//얼굴 사진을 업로드 하기 위한 준비.
 	private MultipartFile face;
 }
