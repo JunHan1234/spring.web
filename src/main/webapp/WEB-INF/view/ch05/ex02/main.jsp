@@ -21,6 +21,49 @@ function listUsers() {
 		}
 	})
 }
+$(() => {
+	$('#addUserBtn').click(() => {
+		$.ajax({
+			url: 'user/add',
+			method: 'post',
+			contentType: 'application/json',
+			data: JSON.stringify({
+				userId: $('#userId').val(),
+				username: $('#username').val(),
+				birthday: $('#birthday').val()
+			}),
+			success: listUsers
+		})
+	})
+	
+	$('#fixUserBtn').click(() => {
+		$.ajax({
+			url: 'user/fix',
+			method: 'put',
+			contentType: 'application/json',
+			data: JSON.stringify({
+				userId: $('#userId').val(),
+				username: $('#username').val(),
+				birthday: $('#birthday').val()
+			}),
+			success: listUsers
+		})
+	})
+	
+	$('#delUserBtn').click(() => {
+		$.ajax({
+			url: 'user/del',
+			method: 'delete',
+			contentType: 'application/json',
+			data: JSON.stringify({
+				userId: $('#userId').val(),
+				username: $('#username').val(),
+				birthday: $('#birthday').val()
+			}),
+			success: listUsers
+		})
+	})
+})
 </script>
 
 <form>

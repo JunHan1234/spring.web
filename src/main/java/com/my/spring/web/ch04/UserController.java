@@ -1,4 +1,4 @@
-package com.my.spring.web.ch05.ex02.web;
+package com.my.spring.web.ch04;
 
 import java.util.List;
 
@@ -27,8 +27,10 @@ public class UserController {
 		return mv;
 	}
 	
+	//user data를 조회.
 	@GetMapping("list")
 	public List<User> getUser() {
+		//알아서 return값을 json형태로 잘 변환해준다.
 		return userService.getUsers();
 	}
 	
@@ -37,11 +39,12 @@ public class UserController {
 		userService.addUser(user);
 	}
 	
-	@PutMapping("fix")
+	@PutMapping("put")
 	public void fixUser(@RequestBody User user) {
 		userService.fixUser(user);
 	}
 	
+	//pass variable 이용.
 	@DeleteMapping("del/{userId}")
 	public void delUser(@PathVariable int userId) {
 		userService.delUser(userId);
