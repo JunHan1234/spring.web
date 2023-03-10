@@ -21,6 +21,7 @@ function listUsers() {
 		}
 	})
 }
+
 $(() => {
 	$('#addUserBtn').click(() => {
 		$.ajax({
@@ -52,7 +53,7 @@ $(() => {
 	
 	$('#delUserBtn').click(() => {
 		$.ajax({
-			url: 'user/del',
+			url: 'user/del/' + $('#userId').val(),
 			method: 'delete',
 			contentType: 'application/json',
 			data: JSON.stringify({

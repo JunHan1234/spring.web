@@ -35,7 +35,8 @@ public class UserController {
 	
 	private void saveFile(String filename, MultipartFile file) {
 		try {
-			//file 객체 생성. data는 없는 순수한 객체.
+			//new로 file 객체 생성. data는 없는 순수한 객체.
+			//이 객체에 file을 주입한다. 그리고 해당하는 경로(filename)에 파일을 저장한다.
 			file.transferTo(new File(filename));
 		} catch(IOException e) {}
 	}
