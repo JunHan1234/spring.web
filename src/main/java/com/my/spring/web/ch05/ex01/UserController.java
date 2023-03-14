@@ -24,7 +24,7 @@ public class UserController {
 	}
 	
 	//Get button을 눌러서 생긴 queryString이 더해진 url을 이 핸들러로 받는다.
-	@GetMapping("list")//get은 읽기.
+	@GetMapping("get")//get은 읽기.
 	//jackson library가 json으로 user를 변환 후 return 에 담아준다.
 	public User get(User user) {
 		return user;

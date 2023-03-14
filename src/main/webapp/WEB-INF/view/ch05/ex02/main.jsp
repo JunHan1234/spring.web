@@ -55,12 +55,6 @@ $(() => {
 		$.ajax({
 			url: 'user/del/' + $('#userId').val(),
 			method: 'delete',
-			contentType: 'application/json',
-			data: JSON.stringify({
-				userId: $('#userId').val(),
-				username: $('#username').val(),
-				birthday: $('#birthday').val()
-			}),
 			success: listUsers
 		})
 	})
